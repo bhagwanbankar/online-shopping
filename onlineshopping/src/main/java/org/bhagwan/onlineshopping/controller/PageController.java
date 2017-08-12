@@ -1,7 +1,9 @@
 package org.bhagwan.onlineshopping.controller;
 
 import org.bhagwan.shoppingbackend.dao.CategoryDAO;
+import org.bhagwan.shoppingbackend.dao.ProductDAO;
 import org.bhagwan.shoppingbackend.dto.Category;
+import org.bhagwan.shoppingbackend.dto.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,8 @@ public class PageController {
 	
 	@Autowired
 	private CategoryDAO categoryDAO;
+	@Autowired
+	private ProductDAO productDAO;
 	
 	@RequestMapping(value={"/","/home","/index"})
 	public ModelAndView index(){
@@ -82,4 +86,28 @@ public class PageController {
 		
 		return mv;
 	}
+	
+	/*
+	 * Methods to load single product
+	 */
+	@RequestMapping(value={"/show/{id}/product"})
+	public ModelAndView showSingleProduct(@PathVariable int id){
+		
+		ModelAndView mv= new ModelAndView("page");
+		
+		Product product=productDAO.get(id);
+		//Update View Count
+		product.setViews(product.getViews()+1);
+		productDAO.update(product);
+		
+		mv.addObject("title",product.getName());
+		
+		//passing single product
+		mv.addObject("product", product);
+		mv.addObject("userClickShowProdut",true);
+		
+		return mv;
+	}
+	
+	
 }
