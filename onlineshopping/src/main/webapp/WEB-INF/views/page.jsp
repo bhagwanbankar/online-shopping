@@ -21,13 +21,15 @@
 
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
-<!-- Custom CSS -->
-<link href="${css}/shop-homepage.css" rel="stylesheet">
+
 <!-- Bootstrap -readable theme CSS -->
 <link href="${css}/bootstrap-readable-theme.min.css" rel="stylesheet">
 
 <!-- Bootstrap Datatables theme CSS -->
 <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="${css}/shop-homepage.css" rel="stylesheet">
 
 <script>
 	window.menu = '${title}';
@@ -63,6 +65,11 @@
 			<c:if test="${userClickShowProdut==true}">
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
+			
+			<!-- Load when user click Manage products -->
+			<c:if test="${userClickManageProducts==true}">
+				<%@include file="manageProducts.jsp"%>
+			</c:if>
 
 		</div>
 		<!-- /.container -->
@@ -85,7 +92,12 @@
 		
 		<!-- Jquery DataTables Bootstrap JavaScript -->
 		<script src="${js}/dataTables.bootstrap.js"></script>
+		<!-- Bootbox JavaScript -->
+		<script src="${js}/bootbox.min.js"></script>
 
+		<!-- Jquery validator JavaScript -->
+		<script src="${js}/jquery.validate.js"></script>
+		
 		<!-- My app JavaScript -->
 		<script src="${js}/myapp.js"></script>
 	</div>
