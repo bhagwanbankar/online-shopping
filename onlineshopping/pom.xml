@@ -9,18 +9,19 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<javaee.version>7.0</javaee.version>
-		<spring.version>4.3.10.RELEASE</spring.version>
+		<spring.version>4.3.18.RELEASE</spring.version>
+		<spring.security.version>4.2.2.RELEASE</spring.security.version>
 	</properties>
 
 	<dependencies>
 
 		<!-- Link Banckend project -->
 		<dependency>
-		<groupId>org.bhagwan</groupId>
-		<artifactId>shoppingbackend</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.bhagwan</groupId>
+			<artifactId>shoppingbackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+
 		<!--javaee-api -->
 		<dependency>
 			<groupId>javax</groupId>
@@ -47,23 +48,46 @@
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
-			
+
 			</exclusions>
 		</dependency>
-		
+
 		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<!-- Spring JSTL -->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<!-- Spring web-flow -->
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-webflow</artifactId>
+			<version>2.4.4.RELEASE</version>
+		</dependency>
+		<!-- Spring security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>4.2.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>4.2.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>4.2.3.RELEASE</version>
+		</dependency>
+
 
 	</dependencies>
 	<build>
